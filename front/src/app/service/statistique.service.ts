@@ -23,4 +23,28 @@ export class StatistiqueService {
         return this.tabStats;
       });
   }
+
+  ajoutStats(
+    id: string,
+    title: string,
+    value: string,
+    appreciation: string
+  ): Promise<Statistique[]> {
+    let donneesSaisies = {
+      id: id,
+      title: title,
+      value: value,
+      appreciation: appreciation,
+    };
+
+    return this.http
+      .post('https://stats.naminilamy.fr', donneesSaisies)
+      .toPromise()
+      .then((obj: any) => {
+        this.tabStats.push(
+          new Statistique(obj.id, obj.title, obj.value, obj.appreciation)
+        );
+        return this.tabStats;
+      });
+  }
 }

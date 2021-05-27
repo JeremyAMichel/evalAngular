@@ -1,0 +1,32 @@
+<div>
+  <form (ngSubmit)="onSubmit()" #formulaire="ngForm">
+    <div>
+      <div>
+        <label for="id">id :</label>
+        <input type="text" id="id" [(ngModel)]="id" name="id" />
+      </div>
+      <div>
+        <label for="title">title :</label>
+        <input type="text" id="title" [(ngModel)]="title" name="title" />
+      </div>
+      <div>
+        <label for="value">value :</label>
+        <input type="text" id="value" [(ngModel)]="value" name="value" />
+      </div>
+      <div>
+        <label for="appreciation">appreciation :</label>
+        <input
+          type="text"
+          id="appreciation"
+          [(ngModel)]="appreciation"
+          name="appreciation"
+        />
+      </div>
+    </div>
+    <div>
+      <div>
+        <button type="submit" [disabled]="!formulaire.form.valid">Add</button>
+      </div>
+    </div>
+  </form>
+</div>
