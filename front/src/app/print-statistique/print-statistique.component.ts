@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Statistique } from 'src/models/statistique';
 
 @Component({
@@ -8,11 +8,18 @@ import { Statistique } from 'src/models/statistique';
 })
 export class PrintStatistiqueComponent implements OnInit {
   @Input() public stat!: Statistique;
+  @Output() public demandeSuppression: EventEmitter<void>;
 
   /// CORRIGE DE L'EXERCICE 3 SUITE A UNE PETITE ERREUR DE PARCOUS
   /// on utilise bien les inputs cette fois-ci et le composant statistique affiche bien UNE SEULE stat ;)
 
-  constructor() {}
+  constructor() {
+    this.demandeSuppression = new EventEmitter();
+  }
 
   ngOnInit(): void {}
+
+  traiterClickBouton() {
+    this.demandeSuppression.emit();
+  }
 }

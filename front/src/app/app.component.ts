@@ -36,4 +36,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
   }
+
+  supprStat(stat: Statistique) {
+    this.apiService.deleteStat(stat);
+  }
 }

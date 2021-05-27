@@ -47,4 +47,13 @@ export class StatistiqueService {
         return this.tabStats;
       });
   }
+
+  deleteStat(stat: Statistique) {
+    return this.http
+      .delete('https://stats.naminilamy.fr' + stat.id)
+      .toPromise()
+      .then(() => {
+        console.log('la stat a bien été supprimé');
+      });
+  }
 }
